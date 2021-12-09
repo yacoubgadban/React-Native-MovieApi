@@ -4,56 +4,50 @@ import {createMaterialBottomTabNavigator}from '@react-navigation/material-bottom
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 //Step 2 - import all screens
+
 //Dashboard
-import DashboardScreen ,{screenOptions as DashboardScreenOptions} from '../screens/dashboard'
-import OverviewScreen ,{screenOptions as OverviewScreenOptions} from '../screens/dashboard/overview'
-import SalesScreen ,{screenOptions as SalesScreenOptions} from '../screens/dashboard/sales'
+import CharactersScreen ,{screenOptions as CharactersScreenOptions}from '../screens/characters/charactersIndex'
+import OverviewScreen ,{screenOptions as OverviewScreenOptions} from '../screens/characters/overview'
 
 //Catalog
-import CatalogScreen ,{screenOptions as CatalogScreenOptions} from '../screens/catalog'
-import ProductScreen ,{screenOptions as ProductScreenOptions} from '../screens/catalog/products'
-import ProductDetailsScreen ,{screenOptions as  ProductDetailsScreenOptions} from '../screens/catalog/productDetails'
+import EpisodeScreen ,{screenOptions as EpisodeScreenOptions} from '../screens/episode/episodeIndex'
+import DetailsScreen ,{screenOptions as  DetailsScreenOptions} from '../screens/episode/details'
 
 //Cart
-import CartScreen ,{screenOptions as CartScreenOptions} from '../screens/cart'
-import BasketScreen ,{screenOptions as BasketScreenOptions} from '../screens/cart/basket'
-import PaymentScreen ,{screenOptions as PaymentScreenOptions} from '../screens/cart/payment'
+import QuoteScreen ,{screenOptions as QuoteScreenOptions} from '../screens/quote/quoteIndex'
+
 
 
 
 //Step 3 - Create const for each stack 
-const DashboardStackNavigator =createStackNavigator();
-export const DashboardStack=()=>{
+const CharactersStackNavigator =createStackNavigator();
+export const CharactersStack=()=>{
     return(
-        <DashboardStackNavigator.Navigator>
-                <DashboardStackNavigator.Screen name="dashboard" component={DashboardScreen} options={DashboardScreenOptions}/>
-                <DashboardStackNavigator.Screen name="Overview" component={OverviewScreen} options={OverviewScreenOptions}/>
-                <DashboardStackNavigator.Screen name="Sale" component={SalesScreen} options={SalesScreenOptions}/>
-        </DashboardStackNavigator.Navigator>
+        <CharactersStackNavigator.Navigator screenOptions={{headerShown:false}}>
+                <CharactersStackNavigator.Screen  name="Characters" component={CharactersScreen} />
+                <CharactersStackNavigator.Screen name="Overview" component={OverviewScreen} options={OverviewScreenOptions}/>
+        </CharactersStackNavigator.Navigator>
     )
 }
 
 
 
-const CatalogStackNavigator =createStackNavigator();
-export const CatalogStack=()=>{
+const  EpisodeStackNavigator =createStackNavigator();
+export const  EpisodeStack=()=>{
     return(
-        <CatalogStackNavigator.Navigator>
-                <CatalogStackNavigator.Screen name="catalog" component={CatalogScreen} options={CatalogScreenOptions}/>
-                <CatalogStackNavigator.Screen name="product" component={ProductScreen} options={ProductScreenOptions}/>
-                <CatalogStackNavigator.Screen name="productDetails" component={ProductDetailsScreen} options={ProductDetailsScreenOptions}/>
-        </CatalogStackNavigator.Navigator>
+        <EpisodeStackNavigator.Navigator screenOptions={{headerShown:false}}>
+                <EpisodeStackNavigator.Screen  name="Episode" component={ EpisodeScreen} />
+                <EpisodeStackNavigator.Screen name="Details" component={DetailsScreen} options={DetailsScreenOptions}/>
+        </EpisodeStackNavigator.Navigator>
     )
 }
 
-const CartStackNavigator =createStackNavigator();
-export const CartStack=()=>{
+const QuoteStackNavigator =createStackNavigator();
+export const QuoteStack=()=>{
     return(
-        <CartStackNavigator.Navigator>
-                <CartStackNavigator.Screen name="cart" component={CartScreen} options={CartScreenOptions}/>
-                <CartStackNavigator.Screen name="basket" component={BasketScreen} options={BasketScreenOptions}/>
-                <CartStackNavigator.Screen name="payment" component={PaymentScreen} options={PaymentScreenOptions}/>
-        </CartStackNavigator.Navigator>
+        <QuoteStackNavigator.Navigator screenOptions={{headerShown:false}}>
+                <QuoteStackNavigator.Screen name="quote" component={QuoteScreen} options={QuoteScreenOptions} />
+        </QuoteStackNavigator.Navigator>
     )
 }
 
@@ -63,17 +57,17 @@ const AppBottomBarNavigator=createMaterialBottomTabNavigator();
 export const AppBottomBar=()=>{
 
     return(
-        <AppBottomBarNavigator.Navigator>
+        <AppBottomBarNavigator.Navigator barStyle={{backgroundColor:'#006400'}}>
             <AppBottomBarNavigator.Screen 
-                    options={{tabBarLabel : 'Main' , tabBarIcon:({}) => ( <MaterialCommunityIcons name="home" color="#FFFAF0" size={26}/>) }}
-                    name="Dashboard" component={DashboardStack} />       
+                    options={{tabBarLabel : 'Characters' , tabBarIcon:({}) => ( <MaterialCommunityIcons name="account-group" color="#FFFAF0" size={26}/>) }}
+                    name="characters" component={CharactersStack} />       
             <AppBottomBarNavigator.Screen 
-                    options={{tabBarLabel : 'Catalog' , tabBarIcon:({}) => ( <MaterialCommunityIcons name="menu" color="#FFFAF0" size={26}/>) }}
-                    name="Catalog" component={CatalogStack}/>
+                    options={{tabBarLabel : 'Episodes' , tabBarIcon:({}) => ( <MaterialCommunityIcons name="monitor-screenshot" color="#FFFAF0" size={26}/>) }}
+                    name="Episode" component={EpisodeStack}/>
             
             <AppBottomBarNavigator.Screen 
-                       options={{tabBarLabel : 'Cart' , tabBarIcon:({}) => ( <MaterialCommunityIcons name="cart" color="#FFFAF0" size={26}/>) }}
-                       name="Cart" component={CartStack}/>
+                       options={{tabBarLabel : 'Quotes' , tabBarIcon:({}) => ( <MaterialCommunityIcons name="comma" color="#FFFAF0" size={26}/>) }}
+                       name="Quote" component={QuoteStack}/>
 
 
         </AppBottomBarNavigator.Navigator>
