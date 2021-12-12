@@ -36,14 +36,14 @@ const EpisodeScreen=(props)=>{
             data={data}
             key={item=>item.episode_id}
             renderItem={({item})=>(
-                <View style={{  margin: 15 , backgroundColor: '#F8F8FF'  }}>
+                <View style={{  margin: 15 , backgroundColor: '#808080'  }}>
                     
                     <TouchableOpacity style={{padding:15}} onPress={()=>{props.navigation.navigate('Details',{episode:item})}}>
                         <Text style={{fontSize:20,color:'#006400'}}>{item.title}</Text>
                         <View style={{flexDirection:'row',paddingTop:15}}>
-                            <Text style={{fontStyle:'italic'}}>Season {item.season}</Text>
-                            <Text fontStyle={{fontStyle:'italic'}}>| Episode {item.episode}</Text>
-                            <Text style={{paddingLeft:60 ,fontStyle:'italic'}}>Air date {item.air_date}</Text>
+                            <Text style={{fontStyle:'italic',color:'#F8F8FF'}}>Season {item.season}</Text>
+                            <Text style={{fontStyle:'italic',color:'#F8F8FF'}}>| Episode {item.episode}</Text>
+                            <Text style={{paddingLeft:60 ,fontStyle:'italic',color:'#F8F8FF'}}>Air date {item.air_date}</Text>
                         </View>
                         
                     </TouchableOpacity>
