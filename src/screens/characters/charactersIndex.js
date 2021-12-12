@@ -47,7 +47,7 @@ const CharactersScreen=(props)=>{
           <Image style={{width:'100%',height:230,marginTop:35, alignItems:'center' ,justifyContent: 'center'}} source={{uri:'https://i.ytimg.com/vi/ceqOTZnhgY8/maxresdefault.jpg'}}/>
            
            <View style={{alignItems:'center' ,justifyContent: 'center', backgroundColor:'#006400' ,width:'100%',height:40,}}>
-           <Text style={{fontSize:24,fontWeight:'bold' ,color:'#F8F8FF'}}>CHARACTERS</Text>
+           <Text style={{fontSize:24,fontWeight:'bold' ,color:'#F8F8FF',fontStyle:'italic'}}>CHARACTERS</Text>
              </View>
            <View style={{ flex: 1, padding:10 ,width: '100%' }}>
       {isLoading ? <ActivityIndicator/> : (
@@ -57,7 +57,7 @@ const CharactersScreen=(props)=>{
           keyExtractor={item=>item.char_id}
           renderItem={ ({item}) =>( 
             
-            <View style={{ marginTop: 15, borderRadius:20 , backgroundColor: '#001a00'  }}>
+            <View style={{ marginTop: 15, borderRadius:20 , backgroundColor: '#808080'  }}>
               
             <TouchableOpacity style={{flexDirection:'row' , alignItems:'center' }} onPress={()=>{props.navigation.navigate("Overview",{char : item ,color:changeColor(item.status)})}}>
             <Image style={{width:80 , height:120}} source={{uri:item.img}}/>
@@ -65,8 +65,8 @@ const CharactersScreen=(props)=>{
              <Text></Text>
             </View>
             <View style={{paddingLeft:10}}>
-              <Text style={{color:'#006400' ,fontWeight:'bold',fontSize:18}}>{item.name}</Text>
-              <Text style={{fontSize:15 ,color:'#F8F8FF'}}>{item.nickname}</Text>
+              <Text style={{color:'#006400' ,fontWeight:'bold',fontSize:18,fontStyle:'italic'}}>{item.name}</Text>
+              <Text style={{fontSize:15 ,color:'#F8F8FF',fontStyle:'italic'}}>{item.nickname}</Text>
             </View>
            
             </TouchableOpacity>

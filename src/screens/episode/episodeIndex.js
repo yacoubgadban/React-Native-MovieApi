@@ -30,7 +30,7 @@ const EpisodeScreen=(props)=>{
             <Image style={{width:'100%',height:230,marginTop:35, alignItems:'center' ,justifyContent: 'center'}} source={{uri:'https://i.ytimg.com/vi/ceqOTZnhgY8/maxresdefault.jpg'}}/>
            
            <View style={{alignItems:'center' ,justifyContent: 'center', backgroundColor:'#006400' ,width:'100%',height:40,}}>
-           <Text style={{fontSize:24,fontWeight:'bold' ,color:'#F8F8FF'}}>EPISODE</Text>
+           <Text style={{fontSize:24,fontWeight:'bold' ,color:'#F8F8FF' ,fontStyle:'italic'}}>EPISODE</Text>
              </View>
             <FlatList style={{width:'100%',marginTop: 20}}
             data={data}
@@ -41,9 +41,9 @@ const EpisodeScreen=(props)=>{
                     <TouchableOpacity style={{padding:15}} onPress={()=>{props.navigation.navigate('Details',{episode:item})}}>
                         <Text style={{fontSize:20,color:'#006400'}}>{item.title}</Text>
                         <View style={{flexDirection:'row',paddingTop:15}}>
-                            <Text>Season {item.season}</Text>
-                            <Text>| Episode {item.episode}</Text>
-                            <Text style={{paddingLeft:60}}>Air date {item.air_date}</Text>
+                            <Text style={{fontStyle:'italic'}}>Season {item.season}</Text>
+                            <Text fontStyle={{fontStyle:'italic'}}>| Episode {item.episode}</Text>
+                            <Text style={{paddingLeft:60 ,fontStyle:'italic'}}>Air date {item.air_date}</Text>
                         </View>
                         
                     </TouchableOpacity>

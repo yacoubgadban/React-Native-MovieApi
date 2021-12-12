@@ -2,6 +2,7 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack'
 import {createMaterialBottomTabNavigator}from '@react-navigation/material-bottom-tabs'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import Feather from 'react-native-vector-icons/Feather'
 
 //Step 2 - import all screens
 
@@ -24,7 +25,7 @@ const CharactersStackNavigator =createStackNavigator();
 export const CharactersStack=()=>{
     return(
         <CharactersStackNavigator.Navigator screenOptions={{headerShown:false}}>
-                <CharactersStackNavigator.Screen  name="Characters" component={CharactersScreen} />
+                <CharactersStackNavigator.Screen name="Characters" component={CharactersScreen} />
                 <CharactersStackNavigator.Screen name="Overview" component={OverviewScreen} options={OverviewScreenOptions}/>
         </CharactersStackNavigator.Navigator>
     )
@@ -57,12 +58,12 @@ const AppBottomBarNavigator=createMaterialBottomTabNavigator();
 export const AppBottomBar=()=>{
 
     return(
-        <AppBottomBarNavigator.Navigator barStyle={{backgroundColor:'#006400'}}>
+        <AppBottomBarNavigator.Navigator barStyle={{backgroundColor:'#006400' ,padding:3 ,fontStyle:'italic' }}>
             <AppBottomBarNavigator.Screen 
-                    options={{tabBarLabel : 'Characters' , tabBarIcon:({}) => ( <MaterialCommunityIcons name="account-group" color="#FFFAF0" size={26}/>) }}
+                   options={{tabBarLabel : 'Characters' , tabBarIcon:({}) => ( <MaterialCommunityIcons name="account-group" color="#FFFAF0" size={26}/>) }}
                     name="characters" component={CharactersStack} />       
             <AppBottomBarNavigator.Screen 
-                    options={{tabBarLabel : 'Episodes' , tabBarIcon:({}) => ( <MaterialCommunityIcons name="monitor-screenshot" color="#FFFAF0" size={26}/>) }}
+                    options={{tabBarLabel : 'Episodes' , tabBarIcon:({}) => ( <Feather name="tv" color="#FFFAF0" size={26}/>) }}
                     name="Episode" component={EpisodeStack}/>
             
             <AppBottomBarNavigator.Screen 
